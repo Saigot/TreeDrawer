@@ -12,6 +12,8 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import trees.Trie.TrieNode;
 import trees.BTree.BNode;
+import trees.Heap.Heap;
+import trees.Heap.HeapNode;
 
 /**
  *
@@ -35,19 +37,24 @@ public class Trees {
         
         //Example for a suffix trie
         
-        String s = "Michael Scovell is Awesome";
+        /*String s = "Michael Scovell is Awesome";
         TrieNode.len = s.length();
         TrieNode root = new TrieNode("start","",0);
         
         for(int i = 0; i <= s.length(); i++){
             root.insert(s.substring(i),i);
-        } 
+        } */
         //root.Compress(); //compresses the trie if you want it to be compressed.
         
+        Heap<Integer> heap = new Heap();
+        for(int i = 0; i < 100;i++){
+            heap.insert(i);
+        }
+        System.out.println(heap.DeleteMax().Data);
         System.out.println("done");
         JFrame frame = new JFrame();
         frame.setSize(500,500);
-        Canvas c = new Canvas(root);
+        Canvas c = new Canvas((Node)heap.all.get(0));
         c.setBackground(Color.white);
         JScrollPane j = new JScrollPane(c);
         frame.add(j);

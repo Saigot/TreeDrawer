@@ -13,7 +13,7 @@ import java.util.List;
 public abstract class Node<T> {
     protected int childNum;
     protected int immediateChildren;
-    protected List<Node> children = new ArrayList<>();
+    public List<Node> children = new ArrayList<>();
     public static int drawHeight = 10;
     public static final int textPadding = 1;
     public static final int cellPadding = 5;
